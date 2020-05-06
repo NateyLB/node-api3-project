@@ -11,7 +11,7 @@ router.post('/', validateUser, (req, res) => {
       res.status(201).json(user)
     }
     else{
-      res.status(500).json({message: "User could noit be created"})
+      res.status(500).json({message: "User could not be created"})
     }
   })
 });
@@ -102,7 +102,7 @@ function validateUserId(req, res, next) {
 }
 
 function validateUser(req, res, next) {
-  if(req.body.name){
+  if(req.body.name != ''){
     next()
   }
   else{
@@ -111,7 +111,7 @@ function validateUser(req, res, next) {
 }
 
 function validatePost(req,res,next){
-  if(req.body.text){
+  if(req.body.text != ''){
     next()
   }
   else{
